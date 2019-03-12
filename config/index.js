@@ -10,7 +10,14 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/vue": {
+        target: "http://192.168.99.54:8090/vue",
+        changeOrigin: true,
+        pathRewrite: {"^/vue" : ""} //后面可以使重写的新路径，一般不做更改
+      }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

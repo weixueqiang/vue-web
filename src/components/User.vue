@@ -90,7 +90,7 @@ import test from '../js/test.js'
       },
       methods:{
             list(){
-              this.$http.get('list').then( (result)=> {
+              this.$http.get('user/list').then( (result)=> {
 //                  test.errmsg(this,'全局js错误信息!');
                 // console.log(JSON.stringify(result))
                 let body = result.body;
@@ -148,7 +148,7 @@ import test from '../js/test.js'
             type: 'error',
             duration:3000
           });
-          this.$http.get('get'+"?id="+row.id).then((obj)=>{
+          this.$http.get('user/get'+"?id="+row.id).then((obj)=>{
             let result = obj.body;
             if(result.succee){
               this.dialogFormVisible=true;
@@ -172,7 +172,7 @@ import test from '../js/test.js'
             type: 'warning',
             center:true
           }).then(() => {
-            this.$http.get('delete?id='+row.id).then((obj)=>{
+            this.$http.get('user/delete?id='+row.id).then((obj)=>{
               let result = obj.body;
               if(result.succee){
                 this.$message({

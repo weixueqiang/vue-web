@@ -96,7 +96,7 @@
           }
         });
         console.log(this.$refs[formName].$el);
-        this.$http.post('login',this.ruleForm).then(result=>{
+        this.$http.post('user/login',this.ruleForm).then(result=>{
           let body = result.body;
           if(body.succee){
             console.log("登录成功!");
