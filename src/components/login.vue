@@ -101,7 +101,8 @@
           if(body.succee){
             console.log("登录成功!");
 //            this.logined=true;
-            window.location.href=('#/center/hello');
+//            window.location.href=('#/center/hello');
+            this.$router.push('/center/user')
           }else {
             this.$message.error(body.msg);
           }
