@@ -2,12 +2,13 @@
 
 
 export default {
-  formatDate(row, column, cellValue, index) {
+  pageSize:3,
+    formatDate(row, column, cellValue, index) {
     let date = new Date(cellValue);
-    return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDay()+" "+date.getHours()+":"+date.getMinutes();
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDay()}`
+    //return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDay()+" "+date.getHours()+":"+date.getMinutes();
   },
   errmsg(obj,msgdata){
-    console.log(msgdata);
     obj.$message({
       showClose: true,
       message: msgdata,

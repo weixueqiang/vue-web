@@ -5,6 +5,7 @@ import User from  '../components/User'
 import form from '../components/form'
 import login from '../components/login'
 import center from '../components/center'
+import pageUser from '../components/pageUser'
 
 Vue.use(Router)
 
@@ -34,6 +35,10 @@ export default new Router({
         {
           path:'login',
           component:login
+        },
+        {
+          path:'pageUser',
+          component:pageUser
         }
       ]
     }

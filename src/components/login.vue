@@ -102,7 +102,8 @@
             console.log("登录成功!");
 //            this.logined=true;
 //            window.location.href=('#/center/hello');
-            this.$router.push('/center/user')
+            sessionStorage.clear();
+            this.$router.push('/center/hello')
           }else {
             this.$message.error(body.msg);
           }
@@ -114,7 +115,7 @@
             console.log('失败了');
             return false;
           };
-          this.$http.post('save',this.regForm).then(obj=>{
+          this.$http.post('user/register',this.regForm).then(obj=>{
             var body = obj.body;
             if(body.succee){
               this.$message({
