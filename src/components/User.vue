@@ -122,7 +122,7 @@ import test from '../js/test.js'
               console.log('失败了');
               return false;
             }
-            this.$http.post('save',this.ruleForm).then((result)=>{
+            this.$http.post('user/save',this.ruleForm).then((result)=>{
               let body = result.body;
               if(body.succee){
                 this.list();
