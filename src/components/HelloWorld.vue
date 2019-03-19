@@ -86,7 +86,7 @@
     methods:{
       list(){
         this.$http.get('resource/list').then(obj=>{
-          let body = obj.body;
+          let body = obj.data;
           if(body.succee){
             this.data2=body.data;
             this.get(this.data2[0],'','')
@@ -98,7 +98,7 @@
       add(){
           this.dialogFormVisible=true;
         this.$http.get('resource/get?id='+this.parentId).then(obj=>{
-          let body = obj.body;
+          let body = obj.data;
           if(body.succee){
             console.log(body.data);
             this.ruleForm2.parentId=body.data.id;
@@ -112,7 +112,7 @@
       get(item,node,obj){
         this.parentId=item.id;
        this.$http.get('resource/get?id='+item.id).then(obj=>{
-         let body = obj.body;
+         let body = obj.data;
          if(body.succee){
            console.log(body.data);
            this.ruleForm.id=body.data.id;
@@ -146,7 +146,7 @@
       },
       save(data){
         this.$http.post('resource/save',data).then(obj=>{
-          let body = obj.body;
+          let body = obj.data;
           if(body.succee){
             console.log(body.data);
             this.dialogFormVisible=false;

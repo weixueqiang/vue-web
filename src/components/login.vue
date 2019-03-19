@@ -97,7 +97,9 @@
         });
         console.log(this.$refs[formName].$el);
         this.$http.post('user/login',this.ruleForm).then(result=>{
-          let body = result.body;
+//        this.$http.post('user/login',{'username':'张三','password':'123456'}).then(result=>{
+          let body = result.data;
+          console.log(result);
           if(body.succee){
             console.log("登录成功!");
 //            this.logined=true;
@@ -116,7 +118,7 @@
             return false;
           };
           this.$http.post('user/register',this.regForm).then(obj=>{
-            var body = obj.body;
+            var body = obj.data;
             if(body.succee){
               this.$message({
                 message: '恭喜你，注册成功',

@@ -55,7 +55,6 @@
       },
       logout(){
         this.$http.get('user/logout').then(res=>{
-          alert('aa2');
           this.$router.push('/');
         });
 

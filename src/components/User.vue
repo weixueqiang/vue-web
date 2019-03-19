@@ -93,7 +93,7 @@ import test from '../js/test.js'
               this.$http.get('user/list').then( (result)=> {
 //                  test.errmsg(this,'全局js错误信息!');
                 // console.log(JSON.stringify(result))
-                let body = result.body;
+                let body = result.data;
                 if(body.succee){
                   this.tableData=body.data;
                 }else {
@@ -123,7 +123,7 @@ import test from '../js/test.js'
               return false;
             }
             this.$http.post('user/save',this.ruleForm).then((result)=>{
-              let body = result.body;
+              let body = result.data;
               if(body.succee){
                 this.list();
                 this.dialogFormVisible=false;
@@ -149,7 +149,7 @@ import test from '../js/test.js'
             duration:3000
           });
           this.$http.get('user/get'+"?id="+row.id).then((obj)=>{
-            let result = obj.body;
+            let result = obj.data;
             if(result.succee){
               this.dialogFormVisible=true;
               this.ruleForm.id=result.data.id;
@@ -173,7 +173,7 @@ import test from '../js/test.js'
             center:true
           }).then(() => {
             this.$http.get('user/delete?id='+row.id).then((obj)=>{
-              let result = obj.body;
+              let result = obj.data;
               if(result.succee){
                 this.$message({
                   type: 'success',

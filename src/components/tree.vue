@@ -30,7 +30,7 @@
     methods:{
         list(){
           this.$http.get('resource/list').then(obj=>{
-            let body = obj.body;
+            let body = obj.data;
             if(body.succee){
               this.data2=body.data;
             }else{
@@ -39,7 +39,7 @@
           })
         },
         add(){
-          
+
         },
         get(){
           console.log('fdsf');

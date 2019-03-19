@@ -102,7 +102,7 @@ import test from '../js/test.js'
         list(pageNum,pageSize){
           let params='pageNum='+pageNum+"&pageSize="+pageSize;
           this.$http.get('user/pageList?'+params).then( (result)=> {
-            let body = result.body;
+            let body = result.data;
             console.log('body'+JSON.stringify(body));
             this.tableData=body.list;
             this.pages=body.pages;
@@ -122,7 +122,7 @@ import test from '../js/test.js'
               return false;
             }
             this.$http.post('user/save',this.ruleForm).then((result)=>{
-              let body = result.body;
+              let body = result.data;
               if(body.succee){
                 this.list(this.curpage,test.pageSize);
                 this.dialogFormVisible=false;
@@ -148,7 +148,7 @@ import test from '../js/test.js'
             duration:3000
           });
           this.$http.get('user/get'+"?id="+row.id).then((obj)=>{
-            let result = obj.body;
+            let result = obj.data;
             if(result.succee){
               this.dialogFormVisible=true;
               this.ruleForm.id=result.data.id;
@@ -172,7 +172,7 @@ import test from '../js/test.js'
             center:true
           }).then(() => {
             this.$http.get('user/delete?id='+row.id).then((obj)=>{
-              let result = obj.body;
+              let result = obj.data;
               if(result.succee){
                 this.$message({
                   type: 'success',
