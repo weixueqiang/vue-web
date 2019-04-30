@@ -57,21 +57,35 @@
         this.$http.get('user/logout').then(res=>{
           this.$router.push('/');
         });
-
+      },
+      getInfo(){
+        this.$http.get('user/info').then(result=>{
+          let body = result.data;
+          if(body.succee){
+            this.msg=body.data.username;
+          }else{
+            this.$notify({
+              message: body.msg,
+              position: 'top-right',
+              duration:2000,
+            });
+          }
+        });
       }
     },
     created(){
-
+      this.getInfo();
       let item =sessionStorage.getItem('activeIndex');
       if(!item){
         sessionStorage.setItem('activeIndex',this.activeIndex);
       }else {
         this.activeIndex=item;
-
       }
     }
   }
 </script>
+
+
 
 <style scoped>
   #hand .router-link-active{

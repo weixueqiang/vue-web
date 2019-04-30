@@ -17,7 +17,7 @@ Vue.use(ElementUi)
 Vue.config.productionTip = false//阻止启动生产消息,常用作指令
 
 
-axios.defaults.baseURL = 'http://192.168.99.54:8090/vue/';
+axios.defaults.baseURL = 'http://192.168.100.194:8090/vue/';
  //axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
