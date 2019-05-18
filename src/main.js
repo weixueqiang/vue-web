@@ -13,7 +13,7 @@ Vue.use(ElementUi)
 Vue.use(VueReource)
 
 Vue.config.productionTip = false//阻止启动生产消息，常用作指令
-Vue.http.options.root = 'http://192.168.99.54:8090/vue/';
+Vue.http.options.root = 'http://192.168.153.1:8090/vue/';
 Vue.http.options.emulateJSON=true;//post
 
 

@@ -1,7 +1,7 @@
 <template>
   <div >
-
-    <el-menu
+    <div id="center_head">
+      <el-menu
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
@@ -24,7 +24,51 @@
       <el-menu-item index="2"><router-link tag="div" to="/center/user"  >用户中心</router-link></el-menu-item>
       <el-menu-item index="1"  ><router-link tag="div" to="/center/hello" >处理中心</router-link></el-menu-item>
     </el-menu>
-    <router-view></router-view>
+    </div>
+    <div id="center_left">
+      <el-row class="tac">
+        <el-col :span="12">
+          <el-menu
+            default-active="2"
+            class="el-menu-vertical-demo"
+            @open="handleOpen"
+            @close="handleClose"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b">
+            <el-submenu index="1">
+              <template slot="title">
+                <i class="el-icon-location"></i>
+                <span>导航一</span>
+              </template>
+              <el-menu-item-group>
+                <template slot="title">分组一</template>
+                <el-menu-item index="1-1">选项1</el-menu-item>
+                <el-menu-item index="1-2">选项2</el-menu-item>
+              </el-menu-item-group>
+              <el-menu-item-group title="分组2">
+                <el-menu-item index="1-3">选项3</el-menu-item>
+              </el-menu-item-group>
+              <el-submenu index="1-4">
+                <template slot="title">选项4</template>
+                <el-menu-item index="1-4-1">选项1</el-menu-item>
+              </el-submenu>
+            </el-submenu>
+            <el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
+            </el-menu-item>
+            <el-menu-item index="3">
+              <i class="el-icon-setting"></i>
+              <span slot="title">导航三</span>
+            </el-menu-item>
+          </el-menu>
+        </el-col>
+      </el-row>
+    </div>
+    <div id="center_right">
+      <router-view></router-view>
+    </div>
 
   </div>
 </template>
@@ -58,7 +102,12 @@
           alert('aa2');
           this.$router.push('/');
         });
-
+      },
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
       }
     },
     created(){
@@ -83,8 +132,44 @@
     width: 80px;
     text-align: center;
   }
-  .el-menu li{
+  #center_head .el-menu li{
     float:right;
   }
+  #center_head{
+    position: fixed;
+    top: 0px;
+    height: 60px;
+    width: 100%;
+  }
+  #center_left{
+    /*border: solid red 1px;*/
+    border-top: solid #2888e2 1px;
+    position: fixed;
+    top: 60px;
+    width: 200px;
+    bottom: 0px;
+    overflow: auto;
+  }
+  #center_left .el-col-12{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(84, 92, 100);
+  }
+  #center_left .tac{
+    height: 100%;
+  }
+  #center_right{
+    /*border: solid black 1px;*/
+    position: fixed;
+    top: 60px;
+    left: 200px;
+    right: 0px;
+    bottom: 0px;
+    /*height: 1000px;*/
+    overflow: auto;
+    padding: 10px;
+    padding-top: 50px;
+  }
+
 
 </style>
